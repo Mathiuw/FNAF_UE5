@@ -2,18 +2,18 @@
 
 
 #include "Animatronic.h"
+#include "Path.h"
 
 // Sets default values
 AAnimatronic::AAnimatronic()
 {
- 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+ 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 }
 
 APath* AAnimatronic::GetPath() const
 {
-
 	return Path;
 }
 

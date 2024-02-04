@@ -3,18 +3,18 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Pawn.h"
+#include "GameFramework/Character.h"
 #include "Animatronic.generated.h"
 
 class APath;
 
 UCLASS()
-class FNAF_LIKE_API AAnimatronic : public APawn
+class FNAF_LIKE_API AAnimatronic : public ACharacter
 {
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this pawn's properties
+	// Sets default values for this character's properties
 	AAnimatronic();
 
 	UFUNCTION(BlueprintPure)
