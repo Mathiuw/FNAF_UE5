@@ -1,0 +1,31 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/Actor.h"
+#include "PathPoint.generated.h"
+
+UCLASS()
+class FNAF_LIKE_API APathPoint : public AActor
+{
+	GENERATED_BODY()
+	
+public:	
+	// Sets default values for this actor's properties
+	APathPoint();
+
+	bool IsWalkable();
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+	UPROPERTY(EditAnywhere, Category = "Path Point Settings")
+	bool Walkable = false;
+
+public:	
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+};
