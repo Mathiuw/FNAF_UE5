@@ -15,7 +15,8 @@ public:
 	// Sets default values for this actor's properties
 	APathPoint();
 
-	bool IsWalkable();
+	UFUNCTION(BlueprintPure)
+	bool GetIsWalkable();
 
 protected:
 	// Called when the game starts or when spawned

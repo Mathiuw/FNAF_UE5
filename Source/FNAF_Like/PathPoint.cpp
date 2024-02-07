@@ -12,7 +12,7 @@ APathPoint::APathPoint()
 
 }
 
-bool APathPoint::IsWalkable()
+bool APathPoint::GetIsWalkable()
 {
 	return Walkable;
 }
