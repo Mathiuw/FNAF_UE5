@@ -4,6 +4,7 @@
 #include "Path.h"
 #include "PathPoint.h"
 #include "DrawDebugHelpers.h"
+#include "Door.h"
 
 // Sets default values
 APath::APath()
@@ -23,7 +24,7 @@ APathPoint* APath::GetPoint(int index) const
 	return Points[index];
 }
 
-bool APath::isNextPointValid(int index) const
+bool APath::IsNextPointValid(int index) const
 {
 	if (Points.IsValidIndex(++index))
 	{
@@ -54,17 +55,12 @@ void APath::DEBUGDrawLinePoints()
 			return;
 		}
 
-		APathPoint* NextPoint;
+		APathPoint* NextPoint = nullptr;
 
 		if (Points.IsValidIndex(i + 1))
 		{
 			//Get next point
 			NextPoint = Points[i + 1];
-		}
-		else
-		{
-			//End of the array
-			NextPoint = Points[0];
 		}
 
 		if (!Points.IsValidIndex(i))

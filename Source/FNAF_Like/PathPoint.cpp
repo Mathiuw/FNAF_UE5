@@ -3,6 +3,7 @@
 
 #include "PathPoint.h"
 #include "DrawDebugHelpers.h"
+#include "Door.h"
 
 // Sets default values
 APathPoint::APathPoint()
@@ -15,6 +16,24 @@ APathPoint::APathPoint()
 bool APathPoint::GetIsWalkable()
 {
 	return Walkable;
+}
+
+ADoor* APathPoint::GetDoor() const
+{
+	return PathPointDoor;
+}
+
+bool APathPoint::IsDoorClosed() const
+{
+	if (PathPointDoor)
+	{
+		return PathPointDoor->IsDoorClosed();
+	}
+	else
+	{
+		return false;
+	}
+	
 }
 
 // Called when the game starts or when spawned
@@ -32,4 +51,3 @@ void APathPoint::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
-

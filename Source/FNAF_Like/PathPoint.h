@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "PathPoint.generated.h"
 
+class ADoor;
+
 UCLASS()
 class FNAF_LIKE_API APathPoint : public AActor
 {
@@ -15,8 +17,17 @@ public:
 	// Sets default values for this actor's properties
 	APathPoint();
 
+	//GETTERS
 	UFUNCTION(BlueprintPure)
 	bool GetIsWalkable();
+
+	UFUNCTION(BlueprintPure)
+	ADoor* GetDoor() const;
+
+	//BOOLEANS
+	UFUNCTION(BlueprintPure)
+	bool IsDoorClosed() const;
+
 
 protected:
 	// Called when the game starts or when spawned
@@ -24,6 +35,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "Path Point Settings")
 	bool Walkable = false;
+
+	UPROPERTY(EditAnywhere, Category = "Path Point Settings")
+	ADoor* PathPointDoor;
 
 public:	
 	// Called every frame

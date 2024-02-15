@@ -55,7 +55,7 @@ void ADoor::SetDoorState(bool state)
 	}
 }
 
-bool ADoor::GetIsClosed()
+bool ADoor::IsDoorClosed() const
 {
 	return IsClosed;
 }

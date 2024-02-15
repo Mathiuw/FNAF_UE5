@@ -17,11 +17,14 @@ public:
 	// Sets default values for this actor's properties
 	APath();
 
+	//GETTERS
 	UFUNCTION(BlueprintPure)
 	APathPoint* GetPoint(int index) const;
 
+	//BOOLEANS
 	UFUNCTION(BlueprintPure)
-	bool isNextPointValid(int index) const;
+	bool IsNextPointValid(int index) const;
+
 
 protected:
 	// Called when the game starts or when spawned
@@ -32,7 +35,6 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "Path Settings")
 	TArray<APathPoint*> Points;
-
 
 public:	
 	// Called every frame
