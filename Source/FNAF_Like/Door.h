@@ -6,6 +6,9 @@
 #include "Interactable.h"
 #include "Door.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDoorOpen);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDoorClose);
+
 /**
  * 
  */
@@ -25,7 +28,11 @@ public:
 	void SetDoorState(bool state);
 
 	//GETTERS
+	UFUNCTION(BlueprintCallable)
 	bool IsDoorClosed() const;
+
+	FOnDoorOpen OnDoorOpen;
+	FOnDoorClose OnDoorClose;
 
 protected:
 
@@ -36,6 +43,6 @@ protected:
 	bool IsClosed;
 
 	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* DoorMesh;
+	UStaticMeshComponent* DoorFrameMesh;
 
 };

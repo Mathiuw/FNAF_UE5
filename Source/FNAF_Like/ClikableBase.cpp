@@ -2,7 +2,6 @@
 
 
 #include "ClikableBase.h"
-#include "Interactable.h"
 
 // Sets default values
 AClikableBase::AClikableBase()
@@ -32,20 +31,28 @@ void AClikableBase::BeginPlay()
 	{
 		//Release Click Event
 		OnReleased.AddUniqueDynamic(this, &AClikableBase::OnClickedFunc);
+
+		//Mouse Bound Check Event
+		OnEndCursorOver.AddUniqueDynamic(this, &AClikableBase::MouseBoundCheck);
 	}
 
 	//Cursor Hover Events
 	OnBeginCursorOver.AddUniqueDynamic(this, &AClikableBase::OnHoverFunc);
 	OnEndCursorOver.AddUniqueDynamic(this, &AClikableBase::OnHoverFunc);
-
-	//Mouse Bound Check Event
-	OnEndCursorOver.AddUniqueDynamic(this, &AClikableBase::MouseBoundCheck);
 }
 
 void AClikableBase::OnClickedFunc(AActor* Target, FKey ButtonPressed)
 {
-	ActivateInteractableActor();
+	IsPressed = !IsPressed;
 
+	OnActorClicked.Broadcast(IsPressed);
+}
+
+void AClikableBase::OnReleaseFunc(AActor* Target, FKey ButtonPressed)
+{
+	IsPressed = false;
+
+	OnActorReleased.Broadcast(IsPressed);
 }
 
 void AClikableBase::OnHoverFunc(AActor* TouchedActor)
@@ -56,22 +63,9 @@ void AClikableBase::OnHoverFunc(AActor* TouchedActor)
 
 void AClikableBase::MouseBoundCheck(AActor* TouchedActor)
 {
-	if (Hold && IsPressed)
-	{
-		ActivateInteractableActor();
-	}
+	IsPressed = false;
 
-}
-
-void AClikableBase::ActivateInteractableActor()
-{
-	if (InteractableActor)
-	{
-		InteractableActor->Interact();
-
-		IsPressed = !IsPressed;
-	}
-
+	OnActorReleased.Broadcast(IsPressed);
 }
 
 // Called every frame

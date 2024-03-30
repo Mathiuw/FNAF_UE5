@@ -2,16 +2,15 @@
 
 
 #include "Door.h"
-#include "Kismet/GameplayStatics.h"
-#include "NightGameMode.h"
+#include "ClikableBase.h"
 
 ADoor::ADoor()
 {
 	//Create Static Mesh Component
-	DoorMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Door Mesh"));
+	DoorFrameMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Door Mesh"));
 
 	//Set up Root component
-	RootComponent = DoorMesh;
+	RootComponent = DoorFrameMesh;
 }
 
 void ADoor::Interact()
@@ -19,39 +18,23 @@ void ADoor::Interact()
 	//Open/Close Door
 	SetDoorState(!IsClosed);
 
-	//If NightGamemode Add or Remove Energy Usage Level
-	if (ANightGameMode* GameMode = Cast<ANightGameMode>(UGameplayStatics::GetGameMode(GetWorld() ) ) )
-	{
-		if (!IsClosed)
-		{
-			//Add energy usage level
-			GameMode->RemoveEnergyUsageLevel();
-		}
-		else
-		{
-			//Remove energy usage level
-			GameMode->AddEnergyUsageLevel();
-		}
-	}
-
 }
 
 void ADoor::SetDoorState(bool state)
 {
-	DoorMesh->SetVisibility(state);
-
 	IsClosed = state;
 
-	if (GEngine)
+	if (!state)
 	{
-		if (!state)
-		{
-			GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, TEXT("Door OPENED"));
-		}
-		else
-		{
-			GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, TEXT("Door CLOSED"));
-		}
+		OnDoorOpen.Broadcast();
+
+		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, TEXT("Door OPENED"));
+	}
+	else
+	{
+		OnDoorClose.Broadcast();
+
+		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, TEXT("Door CLOSED"));
 	}
 }
 
@@ -65,4 +48,9 @@ void ADoor::BeginPlay()
 	Super::BeginPlay();
 
 	SetDoorState(false);
+
+	if (ClikableInteractor)
+	{
+		ClikableInteractor->OnActorClicked.AddUniqueDynamic(this, &ADoor::SetDoorState);
+	}
 }

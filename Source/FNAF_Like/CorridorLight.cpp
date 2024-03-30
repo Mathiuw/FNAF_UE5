@@ -3,8 +3,7 @@
 
 #include "CorridorLight.h"
 #include "Components/PointLightComponent.h"
-#include "Kismet/GameplayStatics.h"
-#include "NightGameMode.h"
+#include "ClikableBase.h"
 
 ACorridorLight::ACorridorLight()
 {
@@ -13,43 +12,24 @@ ACorridorLight::ACorridorLight()
 	RootComponent = PointLightComponent;
 }
 
-void ACorridorLight::Interact()
-{
-	SetLightState(!PointLightComponent->IsVisible());
-
-	//If NightGamemode Add or Remove Energy Usage Level
-	if (ANightGameMode* GameMode = Cast<ANightGameMode>(UGameplayStatics::GetGameMode(GetWorld())))
-	{
-		if (!PointLightComponent->IsVisible())
-		{
-			//Add energy usage level
-			GameMode->RemoveEnergyUsageLevel();
-		}
-		else
-		{
-			//Remove energy usage level
-			GameMode->AddEnergyUsageLevel();
-		}
-	}
-
-}
-
 void ACorridorLight::SetLightState(bool state)
 {
 	PointLightComponent->SetVisibility(state);
 
-	if (GEngine)
+	if (!PointLightComponent->IsVisible())
 	{
-		if (!PointLightComponent->IsVisible())
-		{
-			GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, TEXT("Corridor Light OFF"));
-		}
-		else
-		{
-			GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, TEXT("Corridor Light ON"));
-		}
-	}
+		//Broadcast Light OFF event
+		OnLightOFF.Broadcast();
 
+		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, TEXT("Corridor Light OFF"));
+	}
+	else
+	{
+		//Broadcast Light ON event
+		OnLightON.Broadcast();
+
+		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, TEXT("Corridor Light ON"));
+	}
 }
 
 void ACorridorLight::BeginPlay()
@@ -58,5 +38,11 @@ void ACorridorLight::BeginPlay()
 
 	//Disable Light at start
 	PointLightComponent->SetVisibility(false);
+
+	if (ClikableInteractor)
+	{
+		ClikableInteractor->OnActorClicked.AddUniqueDynamic(this, &ACorridorLight::SetLightState);
+		ClikableInteractor->OnActorReleased.AddUniqueDynamic(this, &ACorridorLight::SetLightState);
+	}
 
 }

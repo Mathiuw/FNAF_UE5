@@ -8,6 +8,9 @@
 
 class UPointLightComponent;
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnLightON);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnLightOFF);
+
 /**
  * 
  */
@@ -20,16 +23,24 @@ public:
 
 	ACorridorLight();
 
-	virtual void Interact() override;
-
+	//Sets the light state
 	UFUNCTION(BlueprintCallable)
 	void SetLightState(bool state);
+
+	//Light ON delegate event
+	UPROPERTY(BlueprintAssignable)
+	FOnLightON OnLightON;
+
+	//Light OFF delegate event
+	UPROPERTY(BlueprintAssignable)
+	FOnLightOFF OnLightOFF;
 
 protected:
 	
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	//Light component
 	UPROPERTY(VisibleAnywhere)
 	UPointLightComponent* PointLightComponent;
 

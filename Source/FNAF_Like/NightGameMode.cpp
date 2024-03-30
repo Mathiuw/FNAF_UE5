@@ -2,6 +2,9 @@
 
 
 #include "NightGameMode.h"
+#include "Kismet/GameplayStatics.h"
+#include "Door.h"
+#include "CorridorLight.h"
 
 void ANightGameMode::AdvanceHour()
 { 
@@ -17,6 +20,33 @@ void ANightGameMode::AdvanceHour()
 void ANightGameMode::BeginPlay()
 {
 	Super::BeginPlay();
+
+	TArray<AActor*, FDefaultAllocator> Doors;
+	TArray<AActor*> Lights;
+
+	//Set door events
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ADoor::StaticClass(), Doors);
+
+	for (int i = 0; i < Doors.Num(); i++)
+	{
+		if (ADoor* Door = Cast<ADoor>(Doors[i]))
+		{
+			Door->OnDoorOpen.AddUniqueDynamic(this, &ANightGameMode::RemoveEnergyUsageLevel);
+			Door->OnDoorClose.AddUniqueDynamic(this, &ANightGameMode::AddEnergyUsageLevel);
+		}
+	}
+
+	//Set corridor light events
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ACorridorLight::StaticClass(), Lights);
+
+	for (int i = 0; i < Lights.Num(); i++)
+	{
+		if (ACorridorLight* Light = Cast<ACorridorLight>(Lights[i]))
+		{
+			Light->OnLightON.AddUniqueDynamic(this, &ANightGameMode::AddEnergyUsageLevel);
+			Light->OnLightOFF.AddUniqueDynamic(this, &ANightGameMode::RemoveEnergyUsageLevel);
+		}
+	}
 
 	//Implement timer and events
 }

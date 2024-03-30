@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "Interactable.generated.h"
 
+class AClikableBase;
+
 UCLASS()
 class FNAF_LIKE_API AInteractable : public AActor
 {
@@ -18,6 +20,10 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	//Actor that will triger the light
+	UPROPERTY(EditInstanceOnly, Category = "Clikable Settings")
+	AClikableBase* ClikableInteractor;
 
 public:	
 	// Called every frame

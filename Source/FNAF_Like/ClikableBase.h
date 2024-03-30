@@ -6,7 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "ClikableBase.generated.h"
 
-class AInteractable;
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnActorClicked, bool, IsPressed);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnActorReleased, bool, IsPressed);
 
 UCLASS()
 class FNAF_LIKE_API AClikableBase : public AActor
@@ -20,6 +21,14 @@ public:
 	UFUNCTION(BlueprintPure)
 	bool GetIsPressed() const;
 
+	//Actor clicked delegate event
+	UPROPERTY(BlueprintAssignable)
+	FOnActorClicked OnActorClicked;
+
+	//Actor released delegate event
+	UPROPERTY(BlueprintAssignable)
+	FOnActorReleased OnActorReleased;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -28,6 +37,10 @@ protected:
 	UFUNCTION()
 	void OnClickedFunc(AActor* Target, FKey ButtonPressed);
 
+	//Release click event function
+	UFUNCTION()
+	void OnReleaseFunc(AActor* Target, FKey ButtonPressed);
+
 	//Hover event function
 	UFUNCTION()
 	void OnHoverFunc(AActor* TouchedActor);
@@ -35,11 +48,6 @@ protected:
 	//Check mouse is within bounds
 	UFUNCTION()
 	void MouseBoundCheck(AActor* TouchedActor);
-
-	void ActivateInteractableActor();
-
-	UPROPERTY(EditAnywhere, Category = "Clickable Settings")
-	AInteractable* InteractableActor;
 
 	UPROPERTY(EditAnywhere, Category = "Clickable Settings")
 	bool Hold = false;
