@@ -9,6 +9,10 @@
 /**
  * 
  */
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNightEnd);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPowerOut);
+
 UCLASS()
 class FNAF_LIKE_API ANightGameMode : public AGameModeBase
 {
@@ -26,6 +30,9 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
+
+	FOnNightEnd OnNightEnd;
+	FOnPowerOut OnPowerOut;
 
 	UFUNCTION(BlueprintCallable)
 	void AddEnergyUsageLevel();
@@ -61,35 +68,43 @@ public:
 
 protected:
 
+	void OnNightEndFunc();
+
+	void OnPowerOutFunc();
+
 	//Current night hour
-	UPROPERTY(EditDefaultsOnly, category = "Night Settings")
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, category = "Night Settings")
 	int32 Hour = 12;
 
 	//Night number
-	UPROPERTY(EditDefaultsOnly, category = "Night Settings")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, category = "Night Settings")
 	int32 Night = 0;
 
 	//Level of energy usage
-	UPROPERTY(EditDefaultsOnly, category = "Night Settings")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, category = "Night Settings")
 	int32 EnergyUsageLevel = 0;
 
 	//Amount of energy available
-	UPROPERTY(EditDefaultsOnly, category = "Night Settings")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, category = "Night Settings")
 	float Energy;
 
 	//Amount of energy available
-	UPROPERTY(EditDefaultsOnly, category = "Night Settings")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, category = "Night Settings")
 	float MaxEnergy = 100;
 
 	//Amount of time to pass the hour
-	UPROPERTY(EditDefaultsOnly, category = "Night Settings")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, category = "Night Settings")
 	float PassHourTime = 30;
 
 	//Amount of time to consume power
-	UPROPERTY(EditDefaultsOnly, category = "Night Settings")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, category = "Night Settings")
 	float EnergyConsumeTime = 15;
 
 	//MIN and MAX for energy levels
 	int32 MinEnergyUsageLevel = 1;
 	int32 MaxEnergyUsageLevel = 50;
+
+	//Timers
+	FTimerHandle NightTimer;
+	FTimerHandle PowerTimer;
 };

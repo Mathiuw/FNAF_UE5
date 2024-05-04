@@ -29,7 +29,7 @@ public:
 
 	//GETTERS
 	UFUNCTION(BlueprintCallable)
-	bool IsDoorClosed() const;
+	bool GetIsClosed() const;
 
 	FOnDoorOpen OnDoorOpen;
 	FOnDoorClose OnDoorClose;
@@ -39,7 +39,10 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(EditAnywhere, Category = "Door Settings")
+	UFUNCTION()
+	void OnPowerOutFunc();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Door Settings")
 	bool IsClosed;
 
 	UPROPERTY(VisibleAnywhere)

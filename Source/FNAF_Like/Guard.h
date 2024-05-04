@@ -27,11 +27,11 @@ public:
 
 protected:
 	
-	UPROPERTY(EditAnywhere, category = "Guard Settings")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, category = "Guard Settings")
 	float MoveViewportPercentage = 75;
 
 	//Speed of the camera rotation
-	UPROPERTY(EditAnywhere, category = "Guard Settings")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, category = "Guard Settings")
 	float MoveSpeed = 0.5f;
 
 	//Move the camera with the cursor

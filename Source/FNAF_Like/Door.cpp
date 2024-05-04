@@ -3,6 +3,8 @@
 
 #include "Door.h"
 #include "ClikableBase.h"
+#include "Kismet/GameplayStatics.h"
+#include "NightGameMode.h"
 
 ADoor::ADoor()
 {
@@ -28,17 +30,17 @@ void ADoor::SetDoorState(bool state)
 	{
 		OnDoorOpen.Broadcast();
 
-		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, TEXT("Door OPENED"));
+		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Green, TEXT("Door opened"));
 	}
 	else
 	{
 		OnDoorClose.Broadcast();
 
-		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, TEXT("Door CLOSED"));
+		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, TEXT("Door closed"));
 	}
 }
 
-bool ADoor::IsDoorClosed() const
+bool ADoor::GetIsClosed() const
 {
 	return IsClosed;
 }
@@ -47,10 +49,23 @@ void ADoor::BeginPlay()
 {
 	Super::BeginPlay();
 
-	SetDoorState(false);
+	AGameModeBase* GameMode = UGameplayStatics::GetGameMode(this);
 
+	//Power out event setup
+	if (ANightGameMode* NightGameMode = Cast<ANightGameMode>(GameMode))
+	{
+		NightGameMode->OnPowerOut.AddUniqueDynamic(this, &ADoor::OnPowerOutFunc);
+	}
+
+	//Clikable event setup
 	if (ClikableInteractor)
 	{
 		ClikableInteractor->OnActorClicked.AddUniqueDynamic(this, &ADoor::SetDoorState);
 	}
+}
+
+void ADoor::OnPowerOutFunc()
+{
+	SetDoorState(false);
+
 }

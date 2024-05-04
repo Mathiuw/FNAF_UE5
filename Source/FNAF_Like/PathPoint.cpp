@@ -27,7 +27,7 @@ bool APathPoint::IsDoorClosed() const
 {
 	if (PathPointDoor)
 	{
-		return PathPointDoor->IsDoorClosed();
+		return PathPointDoor->GetIsClosed();
 	}
 	else
 	{

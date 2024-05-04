@@ -6,12 +6,32 @@
 #include "Door.h"
 #include "CorridorLight.h"
 
+void ANightGameMode::PowerConsume()
+{
+	if (Energy > 0)
+	{
+		Energy--;
+	}
+	else
+	{
+		OnPowerOut.Broadcast();
+		GEngine->AddOnScreenDebugMessage(-1, 2.5f, FColor::Red, TEXT("Power out"));
+		GetWorldTimerManager().ClearTimer(PowerTimer);
+	}
+}
+
 void ANightGameMode::AdvanceHour()
 { 
 	if (Hour == 12)
 	{
 		Hour = 1;
 		return;
+	}
+	else if (Hour == 6)
+	{
+		OnNightEnd.Broadcast();
+		GEngine->AddOnScreenDebugMessage(-1, 2.5f, FColor::Green, TEXT("Night ended"));
+		GetWorldTimerManager().ClearTimer(NightTimer);
 	}
 
 	Hour = FMath::Clamp(++Hour, 1, 6);
@@ -20,6 +40,9 @@ void ANightGameMode::AdvanceHour()
 void ANightGameMode::BeginPlay()
 {
 	Super::BeginPlay();
+
+	//Set energy to max
+	Energy = MaxEnergy;
 
 	TArray<AActor*, FDefaultAllocator> Doors;
 	TArray<AActor*> Lights;
@@ -48,7 +71,10 @@ void ANightGameMode::BeginPlay()
 		}
 	}
 
-	//Implement timer and events
+	//Timer setup
+	GetWorldTimerManager().SetTimer(NightTimer, this, &ANightGameMode::AdvanceHour,PassHourTime, true);
+	GetWorldTimerManager().SetTimer(PowerTimer, this, &ANightGameMode::PowerConsume, GetEnergyConsumeTime(), true);
+
 }
 
 void ANightGameMode::AddEnergyUsageLevel()
@@ -101,10 +127,12 @@ void ANightGameMode::SetEnergy(float Amount)
 	Energy = Amount;
 }
 
-void ANightGameMode::PowerConsume()
+void ANightGameMode::OnNightEndFunc()
 {
-	if (Energy > 0)
-	{
-		Energy--;
-	}
+	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Green, TEXT("Night ended"));
+}
+
+void ANightGameMode::OnPowerOutFunc()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, TEXT("Power out"));
 }
