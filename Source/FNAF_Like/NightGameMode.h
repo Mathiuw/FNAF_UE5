@@ -24,52 +24,35 @@ protected:
 	void PowerConsume();
 
 	UFUNCTION(BlueprintCallable)
+	void AddEnergyUsageLevel();
+
+	UFUNCTION(BlueprintCallable)
+	void RemoveEnergyUsageLevel();
+
+	UFUNCTION(BlueprintCallable)
 	void AdvanceHour();
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:
-
+	UPROPERTY(BlueprintAssignable)
 	FOnNightEnd OnNightEnd;
+	UPROPERTY(BlueprintAssignable)
 	FOnPowerOut OnPowerOut;
 
-	UFUNCTION(BlueprintCallable)
-	void AddEnergyUsageLevel();
-
-	UFUNCTION(BlueprintCallable)
-	void RemoveEnergyUsageLevel();
-
 	//GETTERS
-	UFUNCTION(BlueprintPure)
-	int32 GetHour()const;
-
-	UFUNCTION(BlueprintPure)
-	int32 GetNight()const;
-
-	UFUNCTION(BlueprintPure)
-	int32 GetEnergyUsageLevel()const;
-
-	UFUNCTION(BlueprintPure)
-	float GetMaxEnergy()const;
-
 	UFUNCTION(BlueprintPure)
 	float GetEnergyPercentage()const;
 
 	UFUNCTION(BlueprintPure)
 	float GetEnergyConsumeTime() const;
 
-	UFUNCTION(BlueprintPure)
-	float GetPassHourTime()const;
-
-	//SETTERS
-	UFUNCTION(BlueprintCallable)
-	void SetEnergy(float Amount);
-
 protected:
 
+	UFUNCTION()
 	void OnNightEndFunc();
-
+	UFUNCTION()
 	void OnPowerOutFunc();
 
 	//Current night hour
@@ -85,11 +68,11 @@ protected:
 	int32 EnergyUsageLevel = 0;
 
 	//Amount of energy available
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, category = "Night Settings")
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, category = "Night Settings")
 	float Energy;
 
 	//Amount of energy available
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, category = "Night Settings")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, category = "Night Settings")
 	float MaxEnergy = 100;
 
 	//Amount of time to pass the hour

@@ -10,7 +10,6 @@ class UPointLightComponent;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnLightON);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnLightOFF);
-
 /**
  * 
  */
@@ -39,6 +38,8 @@ protected:
 	
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	void OnPowerOutFunc();
 
 	//Light component
 	UPROPERTY(VisibleAnywhere)

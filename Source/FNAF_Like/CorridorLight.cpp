@@ -3,6 +3,8 @@
 
 #include "CorridorLight.h"
 #include "Components/PointLightComponent.h"
+#include "Kismet/GameplayStatics.h"
+#include "NightGameMode.h"
 #include "ClikableBase.h"
 
 ACorridorLight::ACorridorLight()
@@ -45,4 +47,18 @@ void ACorridorLight::BeginPlay()
 		ClikableInteractor->OnActorReleased.AddUniqueDynamic(this, &ACorridorLight::SetLightState);
 	}
 
+	//Get gamemode acd cast to ANightGameMode class
+	ANightGameMode* NightGameMode = Cast<ANightGameMode>(UGameplayStatics::GetGameMode(this));
+
+	//Set power out event
+	if (NightGameMode)
+	{
+		NightGameMode->OnPowerOut.AddUniqueDynamic(this, &ACorridorLight::OnPowerOutFunc);
+	}
+	
+}
+
+void ACorridorLight::OnPowerOutFunc()
+{
+	PointLightComponent->SetVisibility(false);
 }

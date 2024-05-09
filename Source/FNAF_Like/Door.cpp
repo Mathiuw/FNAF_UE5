@@ -29,13 +29,11 @@ void ADoor::SetDoorState(bool state)
 	if (!state)
 	{
 		OnDoorOpen.Broadcast();
-
 		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Green, TEXT("Door opened"));
 	}
 	else
 	{
 		OnDoorClose.Broadcast();
-
 		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, TEXT("Door closed"));
 	}
 }
