@@ -2,3 +2,32 @@
 
 
 #include "SecurityCamera.h"
+#include "Components/PointLightComponent.h"
+
+ASecurityCamera::ASecurityCamera()
+{
+	CameraLight = CreateDefaultSubobject<UPointLightComponent>(TEXT("Camera Light"));
+	
+	CameraLight->SetupAttachment(RootComponent);
+}
+
+void ASecurityCamera::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+
+	CameraLight->SetVisibility(true);
+}
+
+void ASecurityCamera::UnPossessed()
+{
+	Super::UnPossessed();
+
+	CameraLight->SetVisibility(false);
+}
+
+void ASecurityCamera::BeginPlay()
+{
+	Super::BeginPlay();
+
+	CameraLight->SetVisibility(false);
+}

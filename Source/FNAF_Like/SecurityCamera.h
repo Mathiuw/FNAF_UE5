@@ -6,7 +6,7 @@
 #include "PawnBase.h"
 #include "SecurityCamera.generated.h"
 
-class AGuard;
+class UPointLightComponent;
 
 /**
  * 
@@ -16,4 +16,19 @@ class FNAF_LIKE_API ASecurityCamera : public APawnBase
 {
 	GENERATED_BODY()
 
+public:
+	ASecurityCamera();
+
+	//Called when possessed by any controller
+	virtual void PossessedBy(AController* NewController) override;
+
+	//Called when unpossessed by any controller
+	virtual void UnPossessed() override;
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	UPointLightComponent* CameraLight;
 };
