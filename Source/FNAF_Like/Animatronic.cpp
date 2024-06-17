@@ -22,6 +22,19 @@ void AAnimatronic::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	OnAnimatronicPathCompletion.AddUniqueDynamic(this, &AAnimatronic::OnAnimatronicPathCompletionFunc);
+
+}
+
+void AAnimatronic::OnAnimatronicPathCompletionFunc()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 2.0, FColor::Red, TEXT("Animatronic broke into the office"));
+
+}
+
+void AAnimatronic::BreakIntoOffice()
+{
+	OnAnimatronicPathCompletion.Broadcast();
 }
 
 // Called every frame

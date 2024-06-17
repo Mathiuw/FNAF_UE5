@@ -8,6 +8,8 @@
 
 class APath;
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAnimatronicPathCompletion);
+
 UCLASS()
 class FNAF_LIKE_API AAnimatronic : public ACharacter
 {
@@ -16,6 +18,10 @@ class FNAF_LIKE_API AAnimatronic : public ACharacter
 public:
 	// Sets default values for this character's properties
 	AAnimatronic();
+
+	//Event when animatronic enters the office, completing his path
+	UPROPERTY(BlueprintAssignable)
+	FOnAnimatronicPathCompletion OnAnimatronicPathCompletion;
 
 	UFUNCTION(BlueprintPure)
 	APath* GetPath() const;
@@ -26,6 +32,13 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "AI Settings")
 	APath* Path;
+
+	UFUNCTION()
+	void OnAnimatronicPathCompletionFunc();
+
+	//Broadcast the FOnAnimatronicPathCompletion delegate
+	UFUNCTION(BlueprintCallable)
+	void BreakIntoOffice();
 
 public:	
 	// Called every frame

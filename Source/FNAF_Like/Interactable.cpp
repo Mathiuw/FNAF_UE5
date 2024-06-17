@@ -29,7 +29,7 @@ void AInteractable::Interact()
 {
 	if (GEngine)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, TEXT("Interacted"));
+		GEngine->AddOnScreenDebugMessage(-1, 2.0, FColor::Cyan, TEXT("Interacted"));
 	}
 
 }
