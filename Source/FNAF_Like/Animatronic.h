@@ -6,8 +6,6 @@
 #include "GameFramework/Character.h"
 #include "Animatronic.generated.h"
 
-class APath;
-
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAnimatronicPathCompletion);
 
 UCLASS()
@@ -23,16 +21,11 @@ public:
 	UPROPERTY(BlueprintAssignable)
 	FOnAnimatronicPathCompletion OnAnimatronicPathCompletion;
 
-	UFUNCTION(BlueprintPure)
-	APath* GetPath() const;
-
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(EditAnywhere, Category = "AI Settings")
-	APath* Path;
-
+	//Path complete event function
 	UFUNCTION()
 	void OnAnimatronicPathCompletionFunc();
 
