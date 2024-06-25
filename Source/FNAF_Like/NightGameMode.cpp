@@ -46,10 +46,12 @@ void ANightGameMode::BeginPlay()
 	//Set energy to max
 	Energy = MaxEnergy;
 
-	//Night end events
+	//Night end func event setup
 	OnNightEnd.AddUniqueDynamic(this, &ANightGameMode::OnNightEndFunc);
-	//Power out events
+	//Power out func event setup
 	OnPowerOut.AddUniqueDynamic(this, &ANightGameMode::OnPowerOutFunc);
+	//Game over func event setup
+	OnGameOver.AddUniqueDynamic(this, &ANightGameMode::OnGameOverFunc);
 
 	//Get player controller and check if it is AGuardController class
 	AGuardController* GuardController = Cast<AGuardController>(UGameplayStatics::GetPlayerController(this, 0));
@@ -118,6 +120,12 @@ void ANightGameMode::RemoveEnergyUsageLevel()
 	EnergyUsageLevel = FMath::Clamp(--EnergyUsageLevel, MinEnergyUsageLevel, MaxEnergyUsageLevel);
 }
 
+void ANightGameMode::EndGame()
+{
+	OnGameOver.Broadcast();
+
+}
+
 float ANightGameMode::GetEnergyPercentage()const
 {
 	return (Energy/MaxEnergy) * 100;
@@ -138,4 +146,10 @@ void ANightGameMode::OnPowerOutFunc()
 {
 	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, TEXT("Power out"));
 	GetWorldTimerManager().ClearTimer(PowerTimer);
+}
+
+void ANightGameMode::OnGameOverFunc()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, TEXT("Game Over"));
+
 }

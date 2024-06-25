@@ -11,6 +11,7 @@
  */
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNightEnd);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnGameOver);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPowerOut);
 
 UCLASS()
@@ -38,8 +39,16 @@ protected:
 public:
 	UPROPERTY(BlueprintAssignable)
 	FOnNightEnd OnNightEnd;
+
 	UPROPERTY(BlueprintAssignable)
 	FOnPowerOut OnPowerOut;
+
+	UPROPERTY(BlueprintAssignable)
+	FOnGameOver OnGameOver;
+
+	//Broadcast OnGameOver event
+	UFUNCTION(BlueprintCallable)
+	void EndGame();
 
 	//GETTERS
 	UFUNCTION(BlueprintPure)
@@ -52,8 +61,12 @@ protected:
 
 	UFUNCTION()
 	void OnNightEndFunc();
+
 	UFUNCTION()
 	void OnPowerOutFunc();
+
+	UFUNCTION()
+	void OnGameOverFunc();
 
 	//Current night hour
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, category = "Night Settings")

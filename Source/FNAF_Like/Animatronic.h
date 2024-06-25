@@ -31,7 +31,7 @@ protected:
 
 	//Broadcast the FOnAnimatronicPathCompletion delegate
 	UFUNCTION(BlueprintCallable)
-	void BreakIntoOffice();
+	void CompletePath();
 
 public:	
 	// Called every frame

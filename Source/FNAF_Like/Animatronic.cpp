@@ -22,11 +22,11 @@ void AAnimatronic::BeginPlay()
 
 void AAnimatronic::OnAnimatronicPathCompletionFunc()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 2.0, FColor::Red, TEXT("Animatronic broke into the office"));
+	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, TEXT("Animatronic broke into the office"));
 
 }
 
-void AAnimatronic::BreakIntoOffice()
+void AAnimatronic::CompletePath()
 {
 	OnAnimatronicPathCompletion.Broadcast();
 }
