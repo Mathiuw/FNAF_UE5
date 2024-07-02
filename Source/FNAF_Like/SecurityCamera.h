@@ -31,4 +31,10 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	UPointLightComponent* CameraLight;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Security Camera Settings")
+	FString CameraName = "Camera_Name";
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Security Camera Settings")
+	FString CameraSufix = "Camera_Sufix";
 };

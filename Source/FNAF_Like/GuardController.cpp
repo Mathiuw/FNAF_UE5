@@ -22,7 +22,15 @@ void AGuardController::SwitchCameraGuard()
 		}
 
 		//Posses camera
-		Possess(GetSecurityCamera(GetCurrentSecurityCamera()));
+		if (SecurityCameras.IsValidIndex(CurrentSecurityCameraIndex))
+		{
+			Possess(SecurityCameras[CurrentSecurityCameraIndex]);
+		}
+		else
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.0, FColor::Red, TEXT("Invalid camera index"));
+		}
+		
 	}
 	else if (Cast<ASecurityCamera>(GetPawn()))
 	{
@@ -44,31 +52,24 @@ void AGuardController::SwitchCamera(int32 CameraIndex)
 		return;
 	} 
 
-	//Subtract camera index by 1
-	int32 ArrayIndex = --CameraIndex;
-
-	if (CurrentSecurityCameraIndex != ArrayIndex && ArrayIndex < SecurityCameras.Max())
+	if (SecurityCameras.IsValidIndex(CameraIndex))
 	{
-		Possess(GetSecurityCamera(ArrayIndex));
-		CurrentSecurityCameraIndex = ArrayIndex;
+		Possess(SecurityCameras[CameraIndex]);
+		CurrentSecurityCameraIndex = CameraIndex;
 
-		UE_LOG(LogTemp, Display, TEXT("CAMERA CHANGED, Array index: %d"), ArrayIndex);
+		UE_LOG(LogTemp, Display, TEXT("CAMERA CHANGED, Array index: %d"), CameraIndex);
+
+		GEngine->AddOnScreenDebugMessage(-1, 2.0, FColor::Cyan, TEXT("Switched camera"));
 	}
-}
-
-ASecurityCamera* AGuardController::GetSecurityCamera(int32 index) const
-{
-	return SecurityCameras[index];
+	else
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.0, FColor::Red, TEXT("Invalid camera index"));
+	}
 }
 
 void AGuardController::AddSecurityCamera(ASecurityCamera* SecurityCamera)
 {
 	SecurityCameras.Add(SecurityCamera);
-}
-
-int AGuardController::GetCurrentSecurityCamera() const
-{
-	return CurrentSecurityCameraIndex;
 }
 
 void AGuardController::BeginPlay()

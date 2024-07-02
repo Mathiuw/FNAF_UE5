@@ -26,25 +26,19 @@ public:
 	void SwitchCamera(int32 index);
 
 	UFUNCTION(BlueprintCallable)
-	ASecurityCamera* GetSecurityCamera(int32 CameraIndex)const;
-
-	UFUNCTION(BlueprintCallable)
 	void AddSecurityCamera(ASecurityCamera* SecurityCamera);
-
-	//GETTERS
-	int GetCurrentSecurityCamera()const;
 
 protected:
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(EditAnywhere, category = "Guard Settings")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, category = "Guard Settings")
 	TArray<ASecurityCamera*> SecurityCameras;
 
 	AGuard* Guard;
 
-	UPROPERTY(visibleAnywhere, category = "Guard Settings")
+	UPROPERTY(visibleAnywhere, BlueprintReadOnly, category = "Guard Settings")
 	int32 CurrentSecurityCameraIndex = 0;
 
 };
