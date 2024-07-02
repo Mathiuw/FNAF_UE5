@@ -54,12 +54,16 @@ void AGuardController::SwitchCamera(int32 CameraIndex)
 
 	if (SecurityCameras.IsValidIndex(CameraIndex))
 	{
+		//Change Pawn
 		Possess(SecurityCameras[CameraIndex]);
+		//Update current index
 		CurrentSecurityCameraIndex = CameraIndex;
 
 		UE_LOG(LogTemp, Display, TEXT("CAMERA CHANGED, Array index: %d"), CameraIndex);
-
 		GEngine->AddOnScreenDebugMessage(-1, 2.0, FColor::Cyan, TEXT("Switched camera"));
+
+		//Broadcast FOnSwitchCamera eventw
+		OnSwitchCamera.Broadcast();
 	}
 	else
 	{

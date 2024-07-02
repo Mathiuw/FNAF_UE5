@@ -9,6 +9,8 @@
 class ASecurityCamera;
 class AGuard;
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnSwitchCamera);
+
 /**
  * 
  */
@@ -27,6 +29,9 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void AddSecurityCamera(ASecurityCamera* SecurityCamera);
+
+	UPROPERTY(BlueprintAssignable)
+	FOnSwitchCamera OnSwitchCamera;
 
 protected:
 
