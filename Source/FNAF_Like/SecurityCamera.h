@@ -37,4 +37,7 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Security Camera Settings")
 	FString CameraSufix = "Camera_Sufix";
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Security Camera Settings")
+	bool Disabled = false;
 };

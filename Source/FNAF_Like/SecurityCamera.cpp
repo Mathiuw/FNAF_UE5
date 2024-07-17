@@ -15,7 +15,10 @@ void ASecurityCamera::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
 
-	CameraLight->SetVisibility(true);
+	if (!Disabled)
+	{
+		CameraLight->SetVisibility(true);
+	}
 }
 
 void ASecurityCamera::UnPossessed()
