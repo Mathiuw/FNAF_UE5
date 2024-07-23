@@ -11,13 +11,12 @@
 void ANightGameMode::PowerConsume()
 {
 	Energy--;
-	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, TEXT("Power depleted"));
+	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, "Power depleted");
 
 	if (Energy <= 0)
 	{
 		//Send to all listners that power is out
 		OnPowerOut.Broadcast();
-		
 	}
 
 	//TODO: finish timer implementation
@@ -32,7 +31,7 @@ void ANightGameMode::AdvanceHour()
 	}
 
 	Hour++;
-	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, TEXT("Advanced hour"));
+	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, "Advanced hour");
 
 	if (Hour == 6)
 	{
@@ -83,7 +82,7 @@ void ANightGameMode::BeginPlay()
 			else
 			{
 				//Add failed
-				GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, TEXT("Failed to add camera"));
+				GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, "Failed to add camera");
 			}
 		}
 	}
@@ -148,18 +147,18 @@ float ANightGameMode::GetEnergyConsumeTime() const
 
 void ANightGameMode::OnNightEndFunc()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green, TEXT("Night ended"));
+	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green, "Night ended");
 	GetWorldTimerManager().ClearTimer(NightTimer);
 }
 
 void ANightGameMode::OnPowerOutFunc()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, TEXT("Power out"));
+	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, "Power out");
 	GetWorldTimerManager().ClearTimer(PowerTimer);
 }
 
 void ANightGameMode::OnGameOverFunc()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, TEXT("Game Over"));
+	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, "Game Over");
 
 }
