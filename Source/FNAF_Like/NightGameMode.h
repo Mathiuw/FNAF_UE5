@@ -13,6 +13,7 @@
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNightEnd);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnGameOver);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPowerOut);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAnimatronicUpdate);
 
 UCLASS()
 class FNAF_LIKE_API ANightGameMode : public AGameModeBase
@@ -33,10 +34,14 @@ protected:
 	UFUNCTION(BlueprintCallable)
 	void AdvanceHour();
 
+	UFUNCTION(BlueprintCallable)
+	void UpdateAnimatronic();
+
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:
+
 	UPROPERTY(BlueprintAssignable)
 	FOnNightEnd OnNightEnd;
 
@@ -45,6 +50,9 @@ public:
 
 	UPROPERTY(BlueprintAssignable)
 	FOnGameOver OnGameOver;
+
+	UPROPERTY(BlueprintAssignable)
+	FOnAnimatronicUpdate OnAnimatronicUpdate;
 
 	//Broadcast OnGameOver event
 	UFUNCTION(BlueprintCallable)
@@ -96,6 +104,10 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, category = "Night Settings")
 	float EnergyConsumeTime = 15;
 
+	//Amount of time to update animatronic state
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, category = "Night Settings")
+	float AnimatronicUpdateTime = 10;
+
 	//MIN and MAX for energy levels
 	int32 MinEnergyUsageLevel = 1;
 	int32 MaxEnergyUsageLevel = 50;
@@ -103,4 +115,5 @@ protected:
 	//Timers
 	FTimerHandle NightTimer;
 	FTimerHandle PowerTimer;
+	FTimerHandle AnimatronicTimer;
 };

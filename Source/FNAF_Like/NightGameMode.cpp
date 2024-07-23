@@ -17,8 +17,10 @@ void ANightGameMode::PowerConsume()
 	{
 		//Send to all listners that power is out
 		OnPowerOut.Broadcast();
-		//TODO: finish timer implementation
+		
 	}
+
+	//TODO: finish timer implementation
 }
 
 void ANightGameMode::AdvanceHour()
@@ -37,6 +39,13 @@ void ANightGameMode::AdvanceHour()
 		//Send to all listners that night ended
 		OnNightEnd.Broadcast();	
 	}
+}
+
+void ANightGameMode::UpdateAnimatronic()
+{
+	OnAnimatronicUpdate.Broadcast();
+
+	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, "Animatronics updated");
 }
 
 void ANightGameMode::BeginPlay()
@@ -105,9 +114,10 @@ void ANightGameMode::BeginPlay()
 		}
 	}
 
-	//Timer setup
-	GetWorldTimerManager().SetTimer(NightTimer, this, &ANightGameMode::AdvanceHour,PassHourTime, true);
+	//Timers setup
+	GetWorldTimerManager().SetTimer(NightTimer, this, &ANightGameMode::AdvanceHour, PassHourTime, true);
 	GetWorldTimerManager().SetTimer(PowerTimer, this, &ANightGameMode::PowerConsume, GetEnergyConsumeTime(), true);
+	GetWorldTimerManager().SetTimer(AnimatronicTimer, this, &ANightGameMode::UpdateAnimatronic, AnimatronicUpdateTime, true);
 }
 
 void ANightGameMode::AddEnergyUsageLevel()
