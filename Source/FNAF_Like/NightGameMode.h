@@ -6,21 +6,45 @@
 #include "GameFramework/GameModeBase.h"
 #include "NightGameMode.generated.h"
 
-/**
- * 
- */
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNightEnd);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnGameOver);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPowerOut);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAnimatronicUpdate);
 
-UCLASS()
+UCLASS(Abstract)
 class FNAF_LIKE_API ANightGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
-	
+
+public:
+	UPROPERTY(BlueprintAssignable)
+	FOnNightEnd OnNightEnd;
+
+	UPROPERTY(BlueprintAssignable)
+	FOnPowerOut OnPowerOut;
+
+	UPROPERTY(BlueprintAssignable)
+	FOnGameOver OnGameOver;
+
+	UPROPERTY(BlueprintAssignable)
+	FOnAnimatronicUpdate OnAnimatronicUpdate;
+
+	// Broadcast OnGameOver event
+	UFUNCTION(BlueprintCallable)
+	void EndGame();
+
+	// Return the percentage of the energy
+	UFUNCTION(BlueprintPure)
+	float GetEnergyPercentage() const;
+
+	// Return the amount of time to drain power
+	UFUNCTION(BlueprintPure)
+	float GetEnergyConsumeTime() const;
+
 protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
 
 	UFUNCTION(BlueprintCallable)
 	void PowerConsume();
@@ -37,36 +61,6 @@ protected:
 	UFUNCTION(BlueprintCallable)
 	void UpdateAnimatronic();
 
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-
-public:
-
-	UPROPERTY(BlueprintAssignable)
-	FOnNightEnd OnNightEnd;
-
-	UPROPERTY(BlueprintAssignable)
-	FOnPowerOut OnPowerOut;
-
-	UPROPERTY(BlueprintAssignable)
-	FOnGameOver OnGameOver;
-
-	UPROPERTY(BlueprintAssignable)
-	FOnAnimatronicUpdate OnAnimatronicUpdate;
-
-	//Broadcast OnGameOver event
-	UFUNCTION(BlueprintCallable)
-	void EndGame();
-
-	//GETTERS
-	UFUNCTION(BlueprintPure)
-	float GetEnergyPercentage()const;
-
-	UFUNCTION(BlueprintPure)
-	float GetEnergyConsumeTime() const;
-
-protected:
-
 	UFUNCTION()
 	void OnNightEndFunc();
 
@@ -76,43 +70,43 @@ protected:
 	UFUNCTION()
 	void OnGameOverFunc();
 
-	//Current night hour
+	// Current night hour
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, category = "Night Settings")
 	int32 Hour = 12;
 
-	//Night number
+	// Night number
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, category = "Night Settings")
 	int32 Night = 0;
 
-	//Level of energy usage
+	// Level of energy usage
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, category = "Night Settings")
 	int32 EnergyUsageLevel = 0;
 
-	//Amount of energy available
+	// Amount of energy available
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, category = "Night Settings")
 	float Energy;
 
-	//Amount of energy available
+	// Amount of energy available
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, category = "Night Settings")
 	float MaxEnergy = 100;
 
-	//Amount of time to pass the hour
+	// Amount of time to pass the hour
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, category = "Night Settings")
 	float PassHourTime = 30;
 
-	//Amount of time to consume power
+	// Amount of time to consume power
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, category = "Night Settings")
 	float EnergyConsumeTime = 15;
 
-	//Amount of time to update animatronic state
+	// Amount of time to update animatronic state
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, category = "Night Settings")
 	float AnimatronicUpdateTime = 10;
 
-	//MIN and MAX for energy levels
+	// MIN and MAX for energy levels
 	int32 MinEnergyUsageLevel = 1;
 	int32 MaxEnergyUsageLevel = 50;
 
-	//Timers
+	// Timers
 	FTimerHandle NightTimer;
 	FTimerHandle PowerTimer;
 	FTimerHandle AnimatronicTimer;

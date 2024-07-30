@@ -8,7 +8,7 @@
 
 class AClikableBase;
 
-UCLASS()
+UCLASS(Abstract)
 class FNAF_LIKE_API AInteractable : public AActor
 {
 	GENERATED_BODY()
@@ -21,9 +21,9 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	//Actor that will triger the light
+	//Actor that will trigger the light
 	UPROPERTY(EditInstanceOnly, Category = "Clikable Settings")
-	AClikableBase* ClikableInteractor;
+	TObjectPtr<AClikableBase> ClikableInteractor;
 
 public:	
 	// Called every frame

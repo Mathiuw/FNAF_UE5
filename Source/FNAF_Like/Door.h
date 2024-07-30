@@ -12,7 +12,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDoorClose);
 /**
  * 
  */
-UCLASS()
+UCLASS(Abstract)
 class FNAF_LIKE_API ADoor : public AInteractable
 {
 	GENERATED_BODY()
@@ -23,14 +23,14 @@ public:
 
 	virtual void Interact() override;
 
-	//Open/Close the door
+	// Toggle the door state
 	UFUNCTION(BlueprintCallable)
-	void SetDoorState(bool state);
+	void ToggleDoorState();
 
-	//GETTERS
 	UFUNCTION(BlueprintCallable)
 	bool GetIsClosed() const;
 
+	// Delegates
 	FOnDoorOpen OnDoorOpen;
 	FOnDoorClose OnDoorClose;
 
@@ -45,7 +45,7 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Door Settings")
 	bool IsClosed;
 
-	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* DoorFrameMesh;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TObjectPtr<UStaticMeshComponent> DoorFrameMesh;
 
 };

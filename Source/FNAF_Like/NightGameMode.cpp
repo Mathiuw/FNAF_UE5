@@ -8,43 +8,19 @@
 #include "SecurityCamera.h"
 #include "GuardController.h"
 
-void ANightGameMode::PowerConsume()
+void ANightGameMode::EndGame()
 {
-	Energy--;
-	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, "Power depleted");
-
-	if (Energy <= 0)
-	{
-		//Send to all listners that power is out
-		OnPowerOut.Broadcast();
-	}
-
-	//TODO: finish timer implementation
+	OnGameOver.Broadcast();
 }
 
-void ANightGameMode::AdvanceHour()
-{ 
-	if (Hour == 12)
-	{
-		Hour = 1;
-		return;
-	}
-
-	Hour++;
-	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, "Advanced hour");
-
-	if (Hour == 6)
-	{
-		//Send to all listners that night ended
-		OnNightEnd.Broadcast();	
-	}
+float ANightGameMode::GetEnergyPercentage() const
+{
+	return (Energy / MaxEnergy) * 100;
 }
 
-void ANightGameMode::UpdateAnimatronic()
+float ANightGameMode::GetEnergyConsumeTime() const
 {
-	OnAnimatronicUpdate.Broadcast();
-
-	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, "Animatronics updated");
+	return FMath::Clamp(EnergyConsumeTime / EnergyUsageLevel, 0.1, 1000);
 }
 
 void ANightGameMode::BeginPlay()
@@ -60,12 +36,9 @@ void ANightGameMode::BeginPlay()
 	OnPowerOut.AddUniqueDynamic(this, &ANightGameMode::OnPowerOutFunc);
 	//Game over func event setup
 	OnGameOver.AddUniqueDynamic(this, &ANightGameMode::OnGameOverFunc);
-
-	//Get player controller and check if it is AGuardController class
-	AGuardController* GuardController = Cast<AGuardController>(UGameplayStatics::GetPlayerController(this, 0));
-
+	
 	//Get all cameras and send to the AGuardController
-	if (GuardController)
+	if (AGuardController* GuardController = Cast<AGuardController>(UGameplayStatics::GetPlayerController(this, 0)))
 	{
 		TArray<AActor*> Cameras;
 		UGameplayStatics::GetAllActorsOfClass(GetWorld(), ASecurityCamera::StaticClass(), Cameras);
@@ -119,6 +92,20 @@ void ANightGameMode::BeginPlay()
 	GetWorldTimerManager().SetTimer(AnimatronicTimer, this, &ANightGameMode::UpdateAnimatronic, AnimatronicUpdateTime, true);
 }
 
+void ANightGameMode::PowerConsume()
+{
+	Energy--;
+	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, "Power depleted");
+
+	if (Energy <= 0)
+	{
+		//Send to all listners that power is out
+		OnPowerOut.Broadcast();
+	}
+
+	//TODO: finish timer implementation
+}
+
 void ANightGameMode::AddEnergyUsageLevel()
 {
 	EnergyUsageLevel = FMath::Clamp(++EnergyUsageLevel, MinEnergyUsageLevel, MaxEnergyUsageLevel);
@@ -129,36 +116,47 @@ void ANightGameMode::RemoveEnergyUsageLevel()
 	EnergyUsageLevel = FMath::Clamp(--EnergyUsageLevel, MinEnergyUsageLevel, MaxEnergyUsageLevel);
 }
 
-void ANightGameMode::EndGame()
-{
-	OnGameOver.Broadcast();
+void ANightGameMode::AdvanceHour()
+{ 
+	if (Hour == 12)
+	{
+		Hour = 1;
+		return;
+	}
 
+	Hour++;
+	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, "Advanced hour");
+
+	if (Hour == 6)
+	{
+		//Send to all listners that night ended
+		OnNightEnd.Broadcast();	
+	}
 }
 
-float ANightGameMode::GetEnergyPercentage()const
+void ANightGameMode::UpdateAnimatronic()
 {
-	return (Energy/MaxEnergy) * 100;
-}
+	OnAnimatronicUpdate.Broadcast();
 
-float ANightGameMode::GetEnergyConsumeTime() const
-{
-	return FMath::Clamp(EnergyConsumeTime / EnergyUsageLevel, 0.1, 1000);
+	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, "Animatronics updated");
 }
 
 void ANightGameMode::OnNightEndFunc()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green, "Night ended");
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, "Night ended");
 	GetWorldTimerManager().ClearTimer(NightTimer);
+	GetWorldTimerManager().ClearTimer(PowerTimer);
+	GetWorldTimerManager().ClearTimer(AnimatronicTimer);
 }
 
 void ANightGameMode::OnPowerOutFunc()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, "Power out");
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Power out");
 	GetWorldTimerManager().ClearTimer(PowerTimer);
 }
 
 void ANightGameMode::OnGameOverFunc()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, "Game Over");
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Game Over");
 
 }

@@ -22,9 +22,13 @@ public:
 
 	ACorridorLight();
 
-	//Sets the light state
+	//Turn light ON
 	UFUNCTION(BlueprintCallable)
-	void SetLightState(bool state);
+	void SetLightON();
+
+	//Turn light OFF
+	UFUNCTION(BlueprintCallable)
+	void SetLightOFF();
 
 	//Light ON delegate event
 	UPROPERTY(BlueprintAssignable)
@@ -43,7 +47,7 @@ protected:
 	void OnPowerOutFunc();
 
 	//Light component
-	UPROPERTY(VisibleAnywhere)
-	UPointLightComponent* PointLightComponent;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TObjectPtr<UPointLightComponent> PointLightComponent;
 
 };

@@ -8,7 +8,7 @@
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAnimatronicPathCompletion);
 
-UCLASS()
+UCLASS(Abstract)
 class FNAF_LIKE_API AAnimatronic : public ACharacter
 {
 	GENERATED_BODY()
@@ -17,27 +17,26 @@ public:
 	// Sets default values for this character's properties
 	AAnimatronic();
 
-	//Event when animatronic enters the office, completing his path
+	// Delegate when animatronic enters the office, completing his path
 	UPROPERTY(BlueprintAssignable)
 	FOnAnimatronicPathCompletion OnAnimatronicPathCompletion;
 
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-
-	//Path complete event function
-	UFUNCTION()
-	void OnAnimatronicPathCompletionFunc();
-
-	//Broadcast the FOnAnimatronicPathCompletion delegate
-	UFUNCTION(BlueprintCallable)
-	void CompletePath();
-
-public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+	// Path complete event function
+	UFUNCTION()
+	void OnAnimatronicPathCompletionFunc();
+
+	// Broadcast the FOnAnimatronicPathCompletion delegate
+	UFUNCTION(BlueprintCallable)
+	void CompletePath();
 
 };

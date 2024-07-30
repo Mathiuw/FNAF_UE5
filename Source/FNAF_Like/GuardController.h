@@ -11,16 +11,12 @@ class AGuard;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnSwitchCamera);
 
-/**
- * 
- */
-UCLASS()
+UCLASS(Abstract)
 class FNAF_LIKE_API AGuardController : public APlayerController
 {
 	GENERATED_BODY()
 	
 public:
-
 	UFUNCTION(BlueprintCallable)
 	void SwitchCameraGuard();
 
@@ -34,7 +30,6 @@ public:
 	FOnSwitchCamera OnSwitchCamera;
 
 protected:
-
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 

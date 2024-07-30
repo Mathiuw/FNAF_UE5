@@ -6,10 +6,10 @@
 #include "GameFramework/Actor.h"
 #include "ClikableBase.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnActorClicked, bool, IsPressed);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnActorReleased, bool, IsPressed);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnActorClicked);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnActorReleased);
 
-UCLASS()
+UCLASS(Abstract)
 class FNAF_LIKE_API AClikableBase : public AActor
 {
 	GENERATED_BODY()
@@ -56,7 +56,7 @@ protected:
 	bool IsPressed = false;
 
 	UPROPERTY(VisibleAnywhere)
-	USkeletalMeshComponent* ClikableSkeletalMesh;
+	TObjectPtr<USkeletalMeshComponent> ClikableSkeletalMesh;
 
 public:	
 	// Called every frame

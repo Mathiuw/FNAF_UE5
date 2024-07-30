@@ -14,24 +14,20 @@ ACorridorLight::ACorridorLight()
 	RootComponent = PointLightComponent;
 }
 
-void ACorridorLight::SetLightState(bool state)
+void ACorridorLight::SetLightON()
 {
-	PointLightComponent->SetVisibility(state);
+	//Broadcast Light ON event
+	OnLightON.Broadcast();
+	PointLightComponent->SetVisibility(true);
+	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Cyan, TEXT("Corridor Light ON"));
+}
 
-	if (!PointLightComponent->IsVisible())
-	{
-		//Broadcast Light OFF event
-		OnLightOFF.Broadcast();
-
-		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, TEXT("Corridor Light OFF"));
-	}
-	else
-	{
-		//Broadcast Light ON event
-		OnLightON.Broadcast();
-
-		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Cyan, TEXT("Corridor Light ON"));
-	}
+void ACorridorLight::SetLightOFF()
+{
+	//Broadcast Light OFF event
+	OnLightOFF.Broadcast();
+	PointLightComponent->SetVisibility(false);
+	GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Cyan, TEXT("Corridor Light OFF"));
 }
 
 void ACorridorLight::BeginPlay()
@@ -43,8 +39,8 @@ void ACorridorLight::BeginPlay()
 
 	if (ClikableInteractor)
 	{
-		ClikableInteractor->OnActorClicked.AddUniqueDynamic(this, &ACorridorLight::SetLightState);
-		ClikableInteractor->OnActorReleased.AddUniqueDynamic(this, &ACorridorLight::SetLightState);
+		ClikableInteractor->OnActorClicked.AddDynamic(this, &ACorridorLight::SetLightON);
+		ClikableInteractor->OnActorReleased.AddDynamic(this, &ACorridorLight::SetLightOFF);
 	}
 
 	//Get gamemode acd cast to ANightGameMode class

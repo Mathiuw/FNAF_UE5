@@ -45,14 +45,14 @@ void AClikableBase::OnClickedFunc(AActor* Target, FKey ButtonPressed)
 {
 	IsPressed = !IsPressed;
 
-	OnActorClicked.Broadcast(IsPressed);
+	OnActorClicked.Broadcast();
 }
 
 void AClikableBase::OnReleaseFunc(AActor* Target, FKey ButtonPressed)
 {
 	IsPressed = false;
 
-	OnActorReleased.Broadcast(IsPressed);
+	OnActorReleased.Broadcast();
 }
 
 void AClikableBase::OnHoverFunc(AActor* TouchedActor)
@@ -65,7 +65,7 @@ void AClikableBase::MouseBoundCheck(AActor* TouchedActor)
 {
 	IsPressed = false;
 
-	OnActorReleased.Broadcast(IsPressed);
+	OnActorReleased.Broadcast();
 }
 
 // Called every frame

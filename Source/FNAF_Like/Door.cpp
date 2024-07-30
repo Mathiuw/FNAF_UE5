@@ -8,25 +8,20 @@
 
 ADoor::ADoor()
 {
-	//Create Static Mesh Component
 	DoorFrameMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Door Mesh"));
-
-	//Set up Root component
 	RootComponent = DoorFrameMesh;
 }
 
 void ADoor::Interact()
 {
-	//Open/Close Door
-	SetDoorState(!IsClosed);
-
+	ToggleDoorState();
 }
 
-void ADoor::SetDoorState(bool state)
+void ADoor::ToggleDoorState()
 {
-	IsClosed = state;
+	IsClosed = !IsClosed;
 
-	if (!state)
+	if (!IsClosed)
 	{
 		OnDoorOpen.Broadcast();
 		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Green, TEXT("Door opened"));
@@ -58,12 +53,14 @@ void ADoor::BeginPlay()
 	//Clikable event setup
 	if (ClikableInteractor)
 	{
-		ClikableInteractor->OnActorClicked.AddUniqueDynamic(this, &ADoor::SetDoorState);
+		ClikableInteractor->OnActorClicked.AddUniqueDynamic(this, &ADoor::ToggleDoorState);
 	}
 }
 
 void ADoor::OnPowerOutFunc()
 {
-	SetDoorState(false);
-
+	if (IsClosed)
+	{
+		ToggleDoorState();
+	}
 }

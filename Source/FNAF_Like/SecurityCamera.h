@@ -8,10 +8,7 @@
 
 class UPointLightComponent;
 
-/**
- * 
- */
-UCLASS()
+UCLASS(Abstract)
 class FNAF_LIKE_API ASecurityCamera : public APawnBase
 {
 	GENERATED_BODY()
@@ -29,14 +26,14 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	UPointLightComponent* CameraLight;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TObjectPtr<UPointLightComponent> CameraLight;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Security Camera Settings")
 	FString CameraName = "Camera_Name";
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Security Camera Settings")
-	FString CameraSufix = "Camera_Sufix";
+	FString CameraSuffix = "Camera_Suffix";
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Security Camera Settings")
 	bool Disabled = false;

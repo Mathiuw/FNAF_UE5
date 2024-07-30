@@ -15,13 +15,6 @@ APawnBase::APawnBase()
 
 }
 
-// Called when the game starts or when spawned
-void APawnBase::BeginPlay()
-{
-	Super::BeginPlay();
-	
-}
-
 // Called every frame
 void APawnBase::Tick(float DeltaTime)
 {
@@ -36,3 +29,9 @@ void APawnBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 }
 
+// Called when the game starts or when spawned
+void APawnBase::BeginPlay()
+{
+	Super::BeginPlay();
+	
+}

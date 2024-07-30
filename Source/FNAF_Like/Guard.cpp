@@ -5,13 +5,6 @@
 #include "GuardController.h"
 
 
-void AGuard::BeginPlay()
-{
-	Super::BeginPlay();
-
-}
-
-
 void AGuard::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
@@ -20,6 +13,11 @@ void AGuard::Tick(float DeltaTime)
 	MoveCameraByCursor(DeltaTime);
 }
 
+void AGuard::BeginPlay()
+{
+	Super::BeginPlay();
+
+}
 
 void AGuard::MoveCameraByCursor(float DeltaTime)
 {

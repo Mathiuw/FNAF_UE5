@@ -20,17 +20,6 @@ void AAnimatronic::BeginPlay()
 
 }
 
-void AAnimatronic::OnAnimatronicPathCompletionFunc()
-{
-	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, TEXT("Animatronic broke into the office"));
-
-}
-
-void AAnimatronic::CompletePath()
-{
-	OnAnimatronicPathCompletion.Broadcast();
-}
-
 // Called every frame
 void AAnimatronic::Tick(float DeltaTime)
 {
@@ -45,3 +34,13 @@ void AAnimatronic::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 
 }
 
+void AAnimatronic::OnAnimatronicPathCompletionFunc()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, TEXT("Animatronic broke into the office"));
+
+}
+
+void AAnimatronic::CompletePath()
+{
+	OnAnimatronicPathCompletion.Broadcast();
+}

@@ -31,6 +31,5 @@ void AInteractable::Interact()
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 2.0, FColor::Cyan, TEXT("Interacted"));
 	}
-
 }
 
