@@ -11,6 +11,12 @@ AClikableBase::AClikableBase()
 
 	ClikableSkeletalMesh = CreateDefaultSubobject<USkeletalMeshComponent>("ClikableSkeletalMesh");
 	RootComponent = ClikableSkeletalMesh;
+}
+
+// Called every frame
+void AClikableBase::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
 
 }
 
@@ -30,7 +36,7 @@ void AClikableBase::BeginPlay()
 	if (Hold)
 	{
 		//Release Click Event
-		OnReleased.AddUniqueDynamic(this, &AClikableBase::OnClickedFunc);
+		OnReleased.AddUniqueDynamic(this, &AClikableBase::OnReleaseFunc);
 
 		//Mouse Bound Check Event
 		OnEndCursorOver.AddUniqueDynamic(this, &AClikableBase::MouseBoundCheck);
@@ -58,7 +64,6 @@ void AClikableBase::OnReleaseFunc(AActor* Target, FKey ButtonPressed)
 void AClikableBase::OnHoverFunc(AActor* TouchedActor)
 {
 	ClikableSkeletalMesh->SetRenderCustomDepth(!ClikableSkeletalMesh->bRenderCustomDepth);
-
 }
 
 void AClikableBase::MouseBoundCheck(AActor* TouchedActor)
@@ -66,11 +71,4 @@ void AClikableBase::MouseBoundCheck(AActor* TouchedActor)
 	IsPressed = false;
 
 	OnActorReleased.Broadcast();
-}
-
-// Called every frame
-void AClikableBase::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
 }

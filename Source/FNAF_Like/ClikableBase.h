@@ -18,6 +18,9 @@ public:
 	// Sets default values for this actor's properties
 	AClikableBase();
 
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+	
 	UFUNCTION(BlueprintPure)
 	bool GetIsPressed() const;
 
@@ -57,9 +60,4 @@ protected:
 
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<USkeletalMeshComponent> ClikableSkeletalMesh;
-
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
 };
