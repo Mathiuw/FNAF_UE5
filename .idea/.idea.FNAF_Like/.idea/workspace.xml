@@ -13,256 +13,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b859a833-295f-4d32-a886-ce7228745067" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FNAF_Like/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FNAF_Like/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Animations/Buttom/AB_Buttom.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Animations/Buttom/Buttom_Press.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Animations/Buttom/Buttom_Release.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Animations/Door/AB_Door.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Animations/Door/Animations_Door_DoorOpen.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Animatronics/Animatronic_State.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Animatronics/BP_AnimatronicBase.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Animatronics/BP_Chica.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Buttom.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_CorridorLight.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Door.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Guard.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_GuardCameraManager.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Save.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_SecurityCamera.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Controllers/BP_AIAnimatronicController.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Controllers/BP_GuardController.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/GameModes/BP_Menu.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/GameModes/BP_Night1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/GameModes/BP_NightGameModeBase.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CustomMeshes/Level/1X3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CustomMeshes/Level/1X4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CustomMeshes/Level/1X5.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CustomMeshes/Level/2X2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CustomMeshes/Level/2X3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CustomMeshes/Level/3X3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CustomMeshes/Level/3X4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CustomMeshes/Level/4X4d4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CustomMeshes/Level/5X4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CustomMeshes/Level/5X5.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CustomMeshes/Level/Door.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CustomMeshes/Level/Door_Boolean.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CustomMeshes/Level/OfficeWall.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CustomMeshes/Level/Wall_1X3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CustomMeshes/Level/Wall_2X3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CustomMeshes/Level/Window.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fonts/five-nights-at-freddys.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fonts/five-nights-at-freddys_Font.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Levels/GameOver.umap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Levels/MainMenu.umap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Levels/Pizzeria.umap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Levels/Tests.umap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Buttom.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Buttom_Door.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Buttom_Light.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Dining_Chair/Dining_Chair01.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Dining_Chair/Dining_Chair02.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Dining_Chair/Dining_Chair03.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Dining_Table/Dining_Table01.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Dining_Table/Dining_Table02.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Dining_Table/Dining_Table03.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Floor.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Glass.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Glass_Office.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Highlight.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Highlight_Buttom.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Lamp/Glowing.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Lamp/Lamp1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Lamp/LightBulb.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/LeakDecal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Metal_Black.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Office_Desk/Office_Desk01.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Office_Desk/Office_Desk02.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Office_Desk/Office_Desk03.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Office_Monitors/Monitor_01.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Office_Monitors/Monitor_02.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Office_Monitors/Monitor_03.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Office_Monitors/Monitor_04.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/OldStaticTV.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Speakers/1_001.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Speakers/2_001.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Static.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Static_SecurityCamera.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Wall.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Buttom/Buttom.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Buttom/Buttom_PhysicsAsset.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Buttom/Buttom_Skeleton.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Buttom_Panel/Door_Panel.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Chica/CR_Chica.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Chica/Chica.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Chica/Chica1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Chica/Chica_EYES.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Chica/Chica_PhysicsAsset.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Chica/Chica_Skeleton.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Chica/Endoskeleton.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Chica/acmat_0_001.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Chica/acmat_1_001.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Chica/acmat_2_001.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Dining_Chair/Dining_Chair.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Dining_Table/Dining_Table.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Door_Frame/Door_Frame.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Fan/Blade.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Fan/Fan.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Fan/Fan1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Fan/Fan_BaseColor.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Fan/Fan_ON.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Fan/Fan_ON_NoRotation.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Fan/Fan_Skeleton.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Lamp/Lamp.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Lamp/Lamp_NoBulb.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Office_Desk/Office_Desk.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Office_Door/Door.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Office_Door/Door_PhysicsAsset.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Office_Door/Door_Skeleton.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Office_DoorFrame/Door_Frame.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Office_Monitors/Office_Monitor_1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Office_Monitors/Office_Monitor_2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Office_Monitors/Office_Monitor_3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Office_Monitors/Office_Monitor_4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Office_Monitors/Office_Monitor_5.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Pirate_Cove/1_003.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Pirate_Cove/2_003.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Pirate_Cove/Curtain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Pirate_Cove/Curtain2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Pirate_Cove/PirateCove_1_BaseColor.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Pirate_Cove/PirateCove_1_Normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Pirate_Cove/PirateCove_1_Roughness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Pirate_Cove/PirateCove_2_BaseColor.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Pirate_Cove/PirateCove_2_Normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Pirate_Cove/PirateCove_2_Roughness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Pirate_Cove/PirateCove_Curtain2_BaseColor.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Pirate_Cove/PirateCove_Curtain2_Normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Pirate_Cove/PirateCove_Curtain2_Roughness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Pirate_Cove/PirateCove_Curtain_BaseColor.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Pirate_Cove/PirateCove_Curtain_Normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Pirate_Cove/PirateCove_Curtain_Roughness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Pirate_Cove/PirateCove_Curtains.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Pirate_Cove/PirateCove_Lamp_BaseColor.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Pirate_Cove/PirateCove_Lamp_Normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Pirate_Cove/PirateCove_Lamp_Roughness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Pirate_Cove/PirateCove_Lamps.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Pirate_Cove/PirateCove_Lamps1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Pirate_Cove/PirateCove_Stage.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Speakers/Speakers.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/All_Stage.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Bonnie/Bonnie_01.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Bonnie/Bonnie_02.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Bonnie/Bonnie_03.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Bonnie/Bonnie_04.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Bonnie/Bonnie_05.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Bonnie/Bonnie_06.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Bonnie/Bonnie_Peak.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Chica/Chica_01.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Chica/Chica_02.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Chica/Chica_02_Var_01.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Chica/Chica_03.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Chica/Chica_03_Var_01.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Chica/Chica_04.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Chica/Chica_04_Var_01.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Chica/Chica_05.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Chica/Chica_Jumpscare.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Chica/Chica_Peak.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Foxy/Foxy_01.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Foxy/Foxy_02.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Foxy/Foxy_03.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Foxy/Foxy_Run.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Freddy/Freddy_01.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Freddy/Freddy_02.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Freddy/Freddy_03.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Freddy/Freddy_04.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/Freddy/Freddy_05.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/CameraUI/CAM_PRESSED1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/CameraUI/CAM_PRESSED2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/CameraUI/FLIP.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/CameraUI/MAP.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/CameraUI/MAP2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/CameraUI/REC.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Dining_Chair/FNaF_Chair_1_BaseColor.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Dining_Chair/FNaF_Chair_1_Normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Dining_Chair/FNaF_Chair_1_Roughness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Dining_Chair/FNaF_Chair_2_BaseColor.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Dining_Chair/FNaF_Chair_2_Normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Dining_Chair/FNaF_Chair_2_Roughness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Dining_Chair/FNaF_Chair_3_BaseColor.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Dining_Chair/FNaF_Chair_3_Normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Dining_Chair/FNaF_Chair_3_Roughness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Dining_Table/Table_Table_BaseColor.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Dining_Table/Table_Table_Normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Dining_Table/Table_Table_Roughness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Dining_Table/Table_Wood1_BaseColor.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Dining_Table/Table_Wood1_Normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Dining_Table/Table_Wood1_Roughness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Dining_Table/Table_Wood2_BaseColor.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Dining_Table/Table_Wood2_Normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Dining_Table/Table_Wood2_Roughness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Floor/Tiles012_2K-PNG_Color.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Floor/Tiles012_2K-PNG_NormalDX.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Floor/Tiles012_2K-PNG_Roughness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Lamp/LampCeiling_1_BaseColor.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Lamp/LampCeiling_1_Normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Lamp/LampCeiling_1_Roughness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Leak/TCom_DecalsLeaking0257_1_masked_S.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Office_Desk/Desk_1_BaseColor.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Office_Desk/Desk_1_Normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Office_Desk/Desk_1_Roughness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Office_Desk/Desk_2_BaseColor.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Office_Desk/Desk_2_Normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Office_Desk/Desk_2_Roughness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Office_Desk/Desk_3_BaseColor.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Office_Desk/Desk_3_Normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Office_Desk/Desk_3_Roughness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Office_Monitors/Monitors_Base_BaseColor.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Office_Monitors/Monitors_Base_Normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Office_Monitors/Monitors_Base_OcclusionRoughnessMetallic.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Office_Monitors/Monitors_ButtonSides_BaseColor.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Office_Monitors/Monitors_ButtonSides_Normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Office_Monitors/Monitors_ButtonSides_OcclusionRoughnessMet.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Office_Monitors/Monitors_ButtonsFront_BaseColor.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Office_Monitors/Monitors_ButtonsFront_Normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Office_Monitors/Monitors_ButtonsFront_OcclusionRoughnessMe.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Office_Monitors/Monitors_Wires_BaseColor.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Office_Monitors/Monitors_Wires_OcclusionRoughnessMetallic.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Speakers/Speaker_1_BaseColor.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Speakers/Speaker_1_Normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Speakers/Speaker_1_Roughness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Speakers/Speaker_2_BaseColor.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Speakers/Speaker_2_Normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/Speakers/Speaker_2_Roughness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/WallMetal1/Concrete042A_2K-PNG_AmbientOcclusion.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/WallMetal1/Concrete042A_2K-PNG_Color.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/WallMetal1/Concrete042A_2K-PNG_Metalness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/WallMetal1/Concrete042A_2K-PNG_NormalGL.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/WallMetal1/Concrete042A_2K-PNG_Roughness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/WallMetal2/Metal037_2K-PNG_Color.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/WallMetal2/Metal037_2K-PNG_Metalness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/WallMetal2/Metal037_2K-PNG_NormalGL.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/WallMetal2/Metal037_2K-PNG_Roughness.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Widgets/WBP_CameraButtom.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Widgets/WBP_GameOver.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Widgets/WBP_HUD.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Widgets/WBP_MainMenu.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FNAF_Like/Animatronic.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FNAF_Like/AnimatronicBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FNAF_Like/Animatronic.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FNAF_Like/AnimatronicBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FNAF_Like/ClikableBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FNAF_Like/ClikableBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FNAF_Like/ClikableBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FNAF_Like/ClikableBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FNAF_Like/CorridorLight.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FNAF_Like/CorridorLightBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FNAF_Like/CorridorLight.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FNAF_Like/CorridorLightBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FNAF_Like/Door.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FNAF_Like/DoorBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FNAF_Like/Door.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FNAF_Like/DoorBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FNAF_Like/Guard.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FNAF_Like/GuardBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FNAF_Like/Guard.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FNAF_Like/GuardBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FNAF_Like/GuardController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FNAF_Like/GuardControllerBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FNAF_Like/GuardController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FNAF_Like/GuardControllerBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FNAF_Like/Interactable.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FNAF_Like/InteractableBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FNAF_Like/Interactable.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FNAF_Like/InteractableBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FNAF_Like/NightGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FNAF_Like/NightGameModeBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FNAF_Like/NightGameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FNAF_Like/NightGameModeBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FNAF_Like/SecurityCamera.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FNAF_Like/SecurityCameraBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/FNAF_Like/SecurityCamera.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FNAF_Like/SecurityCameraBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Animation/Door/Animations_Door_DoorOpen.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Animation/Door/Animations_Door_DoorOpen.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprint/BP_Guard.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/BP_Guard.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprint/GameModes/BP_NightGameModeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/GameModes/BP_NightGameModeBase.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FNAF_Like/PawnBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FNAF_Like/PawnBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/FNAF_Like/PawnBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/FNAF_Like/PawnBase.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,7 +31,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="cidr-memory-view://0" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/GameFramework/Character.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/GameFramework/SpringArmComponent.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Private/Character.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -288,20 +45,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "C++ Project.FNAF_Like.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;C++ Project.FNAF_Like.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="C++ Project.FNAF_Like">
     <configuration name="FNAF_Like" type="CppProject" factoryName="C++ Project">
       <configuration_1>
@@ -740,6 +497,7 @@
       <workItem from="1718555229641" duration="15000" />
       <workItem from="1722375835932" duration="4212000" />
       <workItem from="1722380678302" duration="3942000" />
+      <workItem from="1722386144368" duration="2886000" />
     </task>
     <servers />
   </component>

@@ -6,6 +6,7 @@
 #include "GameFramework/Pawn.h"
 #include "PawnBase.generated.h"
 
+class USpringArmComponent;
 class UCameraComponent;
 
 UCLASS(Abstract)
@@ -27,7 +28,9 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TObjectPtr<UCameraComponent> Camera;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TObjectPtr<USpringArmComponent> SpringArm;
 };
