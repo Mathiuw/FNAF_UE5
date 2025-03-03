@@ -55,7 +55,10 @@ void ANightGameModeBase::BeginPlay()
 			else
 			{
 				//Add failed
-				GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, "Failed to add camera");
+				if (GEngine)
+				{
+					GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, "Failed to add camera");
+				}
 			}
 		}
 	}
